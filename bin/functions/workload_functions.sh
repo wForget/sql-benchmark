@@ -5,7 +5,7 @@
 # shellcheck disable=SC2006
 
 function checkCMD() {
-    cmd=$1
+    local cmd=$1
     which "$cmd" > /dev/null 2>&1
     if [ $? -eq 1 ]; then
         assert 0 "\"$cmd\" utility missing. Please install it to generate proper report."
