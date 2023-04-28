@@ -1,0 +1,1 @@
+Copy from [https://github.com/apache/kyuubi/tree/master/extensions/spark/kyuubi-spark-connector-tpcds/src/main/resources/kyuubi/tpcds_3.2](https://github.com/apache/kyuubi/tree/master/extensions/spark/kyuubi-spark-connector-tpcds/src/main/resources/kyuubi/tpcds_3.2)
