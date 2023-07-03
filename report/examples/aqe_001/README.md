@@ -16,3 +16,7 @@ spark.sql.adaptive.enabled	true
 spark.sql.adaptive.advisoryPartitionSizeInBytes	1024M
 spark.sql.adaptive.coalescePartitions.minPartitionNum	1
 ```
+
+Result:
+
+![aqe_001_chart.3.2_chart](./aqe_001_chart.png)
