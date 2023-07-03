@@ -64,3 +64,11 @@ bin/run_with_beeline.sh -u "jdbc:hive2://hostname:10000/default;?spark.yarn.queu
 
 # 生成报告在 $work_dir/report 目录中
 ```
+
+### 生成柱状图
+
+```
+python bin/gen_chart.py report/examples/aqe_001/sql_benchmark_spark_3_1_1.report report/examples/aqe_001/sql_benchmark_spark_3_4_0.report report/examples/aqe_001/aqe_001.html
+```
+
+![aqe_001_chart](report/examples/aqe_001/aqe_001_chart.png)

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ECharts Bar Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+    <style>
+        #chart-container {
+		    position: absolute;
+            width: 100%;
+            height: 2200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart-container">
+        <div id="chart" style="height: 100%; width: 100%"></div>
+    </div>
+    <script type="text/javascript">
+        var data1 = [{"name": "q10.sql", "value": 118.458}, {"name": "q11.sql", "value": 248.014}, {"name": "q12.sql", "value": 16.56}, {"name": "q13.sql", "value": 33.747}, {"name": "q14a.sql", "value": 498.545}, {"name": "q14b.sql", "value": 455.925}, {"name": "q15.sql", "value": 82.366}, {"name": "q16.sql", "value": 64.142}, {"name": "q17.sql", "value": 155.232}, {"name": "q18.sql", "value": 127.125}, {"name": "q19.sql", "value": 23.711}, {"name": "q1.sql", "value": 162.296}, {"name": "q20.sql", "value": 20.122}, {"name": "q21.sql", "value": 9.578}, {"name": "q22.sql", "value": 154.73}, {"name": "q23a.sql", "value": 368.983}, {"name": "q23b.sql", "value": 431.932}, {"name": "q24a.sql", "value": 242.616}, {"name": "q24b.sql", "value": 233.767}, {"name": "q25.sql", "value": 147.883}, {"name": "q26.sql", "value": 12.907}, {"name": "q27.sql", "value": 13.261}, {"name": "q28.sql", "value": 23.385}, {"name": "q29.sql", "value": 148.435}, {"name": "q2.sql", "value": 15.212}, {"name": "q30.sql", "value": 88.754}, {"name": "q31.sql", "value": 93.846}, {"name": "q32.sql", "value": 12.61}, {"name": "q33.sql", "value": 12.471}, {"name": "q34.sql", "value": 15.578}, {"name": "q35.sql", "value": 342.572}, {"name": "q36.sql", "value": 9.846}, {"name": "q37.sql", "value": 146.562}, {"name": "q38.sql", "value": 1088.923}, {"name": "q39a.sql", "value": 22.928}, {"name": "q39b.sql", "value": 19.837}, {"name": "q3.sql", "value": 8.441}, {"name": "q40.sql", "value": 65.284}, {"name": "q41.sql", "value": 6.056}, {"name": "q42.sql", "value": 7.396}, {"name": "q43.sql", "value": 10.647}, {"name": "q44.sql", "value": 20.662}, {"name": "q45.sql", "value": 58.099}, {"name": "q46.sql", "value": 28.385}, {"name": "q47.sql", "value": 20.064}, {"name": "q48.sql", "value": 13.096}, {"name": "q49.sql", "value": 47.016}, {"name": "q4.sql", "value": 744.956}, {"name": "q50.sql", "value": 72.679}, {"name": "q51.sql", "value": 362.825}, {"name": "q52.sql", "value": 8.627}, {"name": "q53.sql", "value": 9.921}, {"name": "q54.sql", "value": 56.762}, {"name": "q55.sql", "value": 8.203}, {"name": "q56.sql", "value": 11.376}, {"name": "q57.sql", "value": 23.47}, {"name": "q58.sql", "value": 17.042}, {"name": "q59.sql", "value": 26.675}, {"name": "q5.sql", "value": 18.589}, {"name": "q60.sql", "value": 13.625}, {"name": "q61.sql", "value": 19.605}, {"name": "q62.sql", "value": 11.836}, {"name": "q63.sql", "value": 9.328}, {"name": "q64.sql", "value": 298.439}, {"name": "q65.sql", "value": 64.522}, {"name": "q66.sql", "value": 20.138}, {"name": "q67.sql", "value": 1097.076}, {"name": "q68.sql", "value": 16.286}, {"name": "q69.sql", "value": 94.285}, {"name": "q6.sql", "value": 52.202}, {"name": "q70.sql", "value": 11.969}, {"name": "q71.sql", "value": 49.946}, {"name": "q72.sql", "value": 549.941}, {"name": "q73.sql", "value": 11.503}, {"name": "q74.sql", "value": 249.403}, {"name": "q75.sql", "value": 244.519}, {"name": "q76.sql", "value": 15.367}, {"name": "q77.sql", "value": 14.818}, {"name": "q78.sql", "value": 259.311}, {"name": "q79.sql", "value": 72.942}, {"name": "q7.sql", "value": 15.432}, {"name": "q80.sql", "value": 118.225}, {"name": "q81.sql", "value": 74.144}, {"name": "q82.sql", "value": 146.893}, {"name": "q83.sql", "value": 15.415}, {"name": "q84.sql", "value": 10.84}, {"name": "q85.sql", "value": 58.488}, {"name": "q86.sql", "value": 10.544}, {"name": "q87.sql", "value": 1182.264}, {"name": "q88.sql", "value": 19.655}, {"name": "q89.sql", "value": 11.133}, {"name": "q8.sql", "value": 18.835}, {"name": "q90.sql", "value": 9.639}, {"name": "q91.sql", "value": 17.038}, {"name": "q92.sql", "value": 11.977}, {"name": "q93.sql", "value": 100.531}, {"name": "q94.sql", "value": 63.222}, {"name": "q95.sql", "value": 129.704}, {"name": "q96.sql", "value": 9.862}, {"name": "q97.sql", "value": 207.124}, {"name": "q98.sql", "value": 39.195}, {"name": "q99.sql", "value": 13.158}, {"name": "q9.sql", "value": 20.536}];
+        var data2 = [{"name": "q10.sql", "value": 106.457}, {"name": "q11.sql", "value": 219.81}, {"name": "q12.sql", "value": 17.939}, {"name": "q13.sql", "value": 15.574}, {"name": "q14a.sql", "value": 796.665}, {"name": "q14b.sql", "value": 810.884}, {"name": "q15.sql", "value": 86.444}, {"name": "q16.sql", "value": 67.482}, {"name": "q17.sql", "value": 157.312}, {"name": "q18.sql", "value": 87.67}, {"name": "q19.sql", "value": 24.895}, {"name": "q1.sql", "value": 133.694}, {"name": "q20.sql", "value": 22.521}, {"name": "q21.sql", "value": 9.99}, {"name": "q22.sql", "value": 155.465}, {"name": "q23a.sql", "value": 444.545}, {"name": "q23b.sql", "value": 407.983}, {"name": "q24a.sql", "value": 248.054}, {"name": "q24b.sql", "value": 238.34}, {"name": "q25.sql", "value": 173.505}, {"name": "q26.sql", "value": 15.169}, {"name": "q27.sql", "value": 13.781}, {"name": "q28.sql", "value": 25.73}, {"name": "q29.sql", "value": 160.794}, {"name": "q2.sql", "value": 21.211}, {"name": "q30.sql", "value": 75.144}, {"name": "q31.sql", "value": 101.056}, {"name": "q32.sql", "value": 14.388}, {"name": "q33.sql", "value": 19.688}, {"name": "q34.sql", "value": 20.74}, {"name": "q35.sql", "value": 335.117}, {"name": "q36.sql", "value": 11.574}, {"name": "q37.sql", "value": 139.887}, {"name": "q38.sql", "value": 675.528}, {"name": "q39a.sql", "value": 22.521}, {"name": "q39b.sql", "value": 18.623}, {"name": "q3.sql", "value": 11.15}, {"name": "q40.sql", "value": 67.93}, {"name": "q41.sql", "value": 7.361}, {"name": "q42.sql", "value": 11.133}, {"name": "q43.sql", "value": 11.595}, {"name": "q44.sql", "value": 21.551}, {"name": "q45.sql", "value": 61.142}, {"name": "q46.sql", "value": 28.845}, {"name": "q47.sql", "value": 21.374}, {"name": "q48.sql", "value": 15.065}, {"name": "q49.sql", "value": 64.236}, {"name": "q4.sql", "value": 301.599}, {"name": "q50.sql", "value": 79.603}, {"name": "q51.sql", "value": 306.319}, {"name": "q52.sql", "value": 11.461}, {"name": "q53.sql", "value": 11.076}, {"name": "q54.sql", "value": 68.966}, {"name": "q55.sql", "value": 10.905}, {"name": "q56.sql", "value": 19.071}, {"name": "q57.sql", "value": 22.894}, {"name": "q58.sql", "value": 22.889}, {"name": "q59.sql", "value": 22.342}, {"name": "q5.sql", "value": 34.669}, {"name": "q60.sql", "value": 20.383}, {"name": "q61.sql", "value": 14.929}, {"name": "q62.sql", "value": 12.438}, {"name": "q63.sql", "value": 12.143}, {"name": "q64.sql", "value": 246.889}, {"name": "q65.sql", "value": 70.248}, {"name": "q66.sql", "value": 19.247}, {"name": "q67.sql", "value": 991.729}, {"name": "q68.sql", "value": 20.31}, {"name": "q69.sql", "value": 88.438}, {"name": "q6.sql", "value": 51.983}, {"name": "q70.sql", "value": 15.11}, {"name": "q71.sql", "value": 55.446}, {"name": "q72.sql", "value": 259.997}, {"name": "q73.sql", "value": 17.442}, {"name": "q74.sql", "value": 237.758}, {"name": "q75.sql", "value": 290.586}, {"name": "q76.sql", "value": 24.44}, {"name": "q77.sql", "value": 31.696}, {"name": "q78.sql", "value": 275.085}, {"name": "q79.sql", "value": 70.307}, {"name": "q7.sql", "value": 18.654}, {"name": "q80.sql", "value": 133.925}, {"name": "q81.sql", "value": 77.76}, {"name": "q82.sql", "value": 138.579}, {"name": "q83.sql", "value": 22.086}, {"name": "q84.sql", "value": 32.015}, {"name": "q85.sql", "value": 40.602}, {"name": "q86.sql", "value": 12.257}, {"name": "q87.sql", "value": 753.839}, {"name": "q88.sql", "value": 21.696}, {"name": "q89.sql", "value": 12.75}, {"name": "q8.sql", "value": 43.092}, {"name": "q90.sql", "value": 10.359}, {"name": "q91.sql", "value": 21.182}, {"name": "q92.sql", "value": 14.147}, {"name": "q93.sql", "value": 107.116}, {"name": "q94.sql", "value": 67.869}, {"name": "q95.sql", "value": 126.145}, {"name": "q96.sql", "value": 12.878}, {"name": "q97.sql", "value": 200.765}, {"name": "q98.sql", "value": 44.708}, {"name": "q99.sql", "value": 15.388}, {"name": "q9.sql", "value": 25.976}];
+        var seriesName1 = "sql_benchmark_spark_3_1_1";
+        var seriesName2 = "sql_benchmark_spark_3_4_0";
+
+        var chart = echarts.init(document.getElementById("chart"));
+        var option = {
+            title: {
+                text: "Duration Bar Chart"
+            },
+            legend: {
+                data: [seriesName1, seriesName2]
+            },
+            xAxis: {
+                type: "value"
+            },
+            yAxis: {
+                type: "category",
+                data: data1.map(function (item) {
+                    return item.name;
+                })
+            },
+            series: [{
+                name: seriesName1,
+                type: "bar",
+                data: data1.map(function (item) {
+                    return item.value;
+                })
+            }, {
+                name: seriesName2,
+                type: "bar",
+                data: data2.map(function (item) {
+                    return item.value;
+                })
+            }]
+        };
+        chart.setOption(option);
+    </script>
+</body>
+</html>
