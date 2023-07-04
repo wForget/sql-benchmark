@@ -1,5 +1,7 @@
 Running tpcds (sf1000: 250GB) benchmarks with kyuubi + spark (3.1.1/3.4.0) .
 
+**NOTE: This is not a positive example. The spark 3.4 benchmark performance regression caused by too large `spark.sql.adaptive.advisoryPartitionSizeInBytes` setting.**
+
 Configuration:
 
 ```
