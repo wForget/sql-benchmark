@@ -28,4 +28,6 @@ spark.gluten.generate.libhdfs3.conf.auto=true
 
 Result:
 
-![gluten_spark_3.3.2_chart](./gluten_spark_3.3.2_chart.png)
+![gluten_spark_3.3.2_duration](./gluten_spark_3.3.2_chart_duration.png)
+
+![gluten_spark_3.3.2_speedup](./gluten_spark_3.3.2_chart_speedup.png)

@@ -71,4 +71,8 @@ bin/run_with_beeline.sh -u "jdbc:hive2://hostname:10000/default;?spark.yarn.queu
 python bin/gen_chart.py report/examples/aqe_001/sql_benchmark_spark_3_1_1.report report/examples/aqe_001/sql_benchmark_spark_3_4_0.report report/examples/aqe_001/aqe_001.html
 ```
 
-![aqe_001_chart](report/examples/aqe_001/aqe_001_chart.png)
+The [oap-project/gluten](https://github.com/oap-project/gluten) sql benchmark example run with spark_3.3.2:
+
+![gluten_spark_3.3.2_duration](report/examples/gluten_spark_3.3.2/gluten_spark_3.3.2_chart_duration.png)
+
+![gluten_spark_3.3.2_speedup](report/examples/gluten_spark_3.3.2/gluten_spark_3.3.2_chart_speedup.png)

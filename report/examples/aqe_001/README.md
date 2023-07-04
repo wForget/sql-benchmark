@@ -21,4 +21,6 @@ spark.sql.adaptive.coalescePartitions.minPartitionNum	1
 
 Result:
 
-![aqe_001_chart.3.2_chart](./aqe_001_chart.png)
+![aqe_001_chart_duration](./aqe_001_chart_duration.png)
+
+![aqe_001_chart_speedup](./aqe_001_chart_speedup.png)
