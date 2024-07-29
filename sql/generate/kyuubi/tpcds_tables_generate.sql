@@ -14,8 +14,8 @@
 -- limitations under the License.
 --
 
--- set hive configurations
-set hive.exec.max.dynamic.partitions=5000;
+-- spark sql configurations
+set spark.sql.shuffle.partitions=2000;
 
 -- create database
 create database if not exists ${DB};
@@ -69,6 +69,7 @@ create table web_site stored as ${FILE} as select * from ${SOURCE_NS}.web_site;
 -- partitioned table
 set hive.exec.dynamic.partition=true;
 set hive.exec.dynamic.partition.mode=nonstrict;
+set hive.exec.max.dynamic.partitions=5000;
 
 create table catalog_sales (
   cs_sold_time_sk bigint,
