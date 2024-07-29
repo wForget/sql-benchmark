@@ -14,6 +14,10 @@
 -- limitations under the License.
 --
 
+-- set hive configurations
+set hive.exec.max.dynamic.partitions=5000;
+
+-- create database
 create database if not exists ${DB};
 use ${DB};
 
