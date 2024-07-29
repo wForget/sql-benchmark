@@ -107,6 +107,7 @@ create table catalog_sales (
 ) partitioned by (cs_sold_date_sk bigint) stored as ${FILE};
 insert overwrite table catalog_sales partition (cs_sold_date_sk)
 select
+  /*+ REBALANCE(cs_sold_date_sk) */
   cs_sold_time_sk,
   cs_ship_date_sk,
   cs_bill_customer_sk,
@@ -142,7 +143,9 @@ select
   cs_net_profit,
   cs_sold_date_sk
 from
-  ${SOURCE_NS}.catalog_sales cluster by cs_sold_date_sk;
+  ${SOURCE_NS}.catalog_sales
+-- cluster by cs_sold_date_sk
+;
 
 create table catalog_returns (
   cr_returned_time_sk bigint,
@@ -174,6 +177,7 @@ create table catalog_returns (
 ) partitioned by (cr_returned_date_sk bigint) stored as ${FILE};
 insert overwrite table catalog_returns partition (cr_returned_date_sk)
 select
+  /*+ REBALANCE(cr_returned_date_sk) */
   cr_returned_time_sk,
   cr_item_sk,
   cr_refunded_customer_sk,
@@ -202,7 +206,9 @@ select
   cr_net_loss,
   cr_returned_date_sk
 from
-  ${SOURCE_NS}.catalog_returns cluster by cr_returned_date_sk;
+  ${SOURCE_NS}.catalog_returns
+-- cluster by cr_returned_date_sk
+;
 
 create table inventory (
   inv_item_sk bigint,
@@ -211,12 +217,15 @@ create table inventory (
 ) partitioned by (inv_date_sk bigint) stored as ${FILE};
 insert overwrite table inventory partition (inv_date_sk)
 select
+  /*+ REBALANCE(inv_date_sk) */
   inv_item_sk,
   inv_warehouse_sk,
   inv_quantity_on_hand,
   inv_date_sk
 from
-  ${SOURCE_NS}.inventory cluster by inv_date_sk;
+  ${SOURCE_NS}.inventory
+-- cluster by inv_date_sk
+;
 
 create table store_sales (
   ss_sold_time_sk bigint,
@@ -244,6 +253,7 @@ create table store_sales (
 ) partitioned by (ss_sold_date_sk bigint) stored as ${FILE};
 insert overwrite table store_sales partition (ss_sold_date_sk)
 select
+  /*+ REBALANCE(ss_sold_date_sk) */
   ss_sold_time_sk,
   ss_item_sk,
   ss_customer_sk,
@@ -268,7 +278,9 @@ select
   ss_net_profit,
   ss_sold_date_sk
 from
-  ${SOURCE_NS}.store_sales cluster by ss_sold_date_sk;
+  ${SOURCE_NS}.store_sales
+-- cluster by ss_sold_date_sk
+;
 
 create table store_returns (
   sr_return_time_sk bigint,
@@ -293,6 +305,7 @@ create table store_returns (
 ) partitioned by (sr_returned_date_sk bigint) stored as ${FILE};
 insert overwrite table store_returns partition (sr_returned_date_sk)
 select
+  /*+ REBALANCE(sr_returned_date_sk) */
   sr_return_time_sk,
   sr_item_sk,
   sr_customer_sk,
@@ -314,7 +327,9 @@ select
   sr_net_loss,
   sr_returned_date_sk
 from
-  ${SOURCE_NS}.store_returns cluster by sr_returned_date_sk;
+  ${SOURCE_NS}.store_returns
+-- cluster by sr_returned_date_sk
+;
 
 create table web_sales (
   ws_sold_time_sk bigint,
@@ -353,6 +368,7 @@ create table web_sales (
 ) partitioned by (ws_sold_date_sk bigint) stored as ${FILE};
 insert overwrite table web_sales partition (ws_sold_date_sk)
 select
+  /*+ REBALANCE(ws_sold_date_sk) */
   ws_sold_time_sk,
   ws_ship_date_sk,
   ws_item_sk,
@@ -388,7 +404,9 @@ select
   ws_net_profit,
   ws_sold_date_sk
 from
-  ${SOURCE_NS}.web_sales cluster by ws_sold_date_sk;
+  ${SOURCE_NS}.web_sales
+-- cluster by ws_sold_date_sk
+;
 
 create table web_returns (
   wr_returned_time_sk bigint,
@@ -417,6 +435,7 @@ create table web_returns (
 ) partitioned by (wr_returned_date_sk bigint) stored as ${FILE};
 insert overwrite table web_returns partition (wr_returned_date_sk)
 select
+  /*+ REBALANCE(wr_returned_date_sk) */
   wr_returned_time_sk,
   wr_item_sk,
   wr_refunded_customer_sk,
@@ -442,4 +461,6 @@ select
   wr_net_loss,
   wr_returned_date_sk
 from
-  ${SOURCE_NS}.web_returns cluster by wr_returned_date_sk;
+  ${SOURCE_NS}.web_returns
+-- cluster by wr_returned_date_sk
+;
