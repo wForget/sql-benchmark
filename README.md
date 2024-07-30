@@ -57,8 +57,12 @@ beeline -u "jdbc:hive2://hostname:10000/default;?spark.yarn.queue=${QUEUE};spark
 使用：
 
 ```
-# 指定 SQL 文件目录（默认为 $work_dir/sql/tpcds）
-# export SQL_DIR=sql/tpcds
+# 指定 SQL 文件目录（默认为 ${work_dir}/sql/tpcds/kyuubi_tpcds_3_2）
+# export SQL_DIR=sql/tpcds/kyuubi_tpcds_3_2
+# 指定报告目录（默认为 ${work_dir}/report）
+# export REPORT_DIR=report
+# 指定报告名称（默认为 sql_benchmark_$(timestamp).report）
+# export REPORT_NAME=sql_benchmark_spark_3_2
 
 bin/run_with_beeline.sh -u "jdbc:hive2://hostname:10000/default;?spark.yarn.queue=${QUEUE};"
 
@@ -68,6 +72,8 @@ bin/run_with_beeline.sh -u "jdbc:hive2://hostname:10000/default;?spark.yarn.queu
 ### 生成柱状图
 
 ```
+# 生成柱状图
+# python bin/gen_chart.py {{control group report path}} {{experiment group report path}} {{output html path}}
 python bin/gen_chart.py report/examples/aqe_001/sql_benchmark_spark_3_1_1.report report/examples/aqe_001/sql_benchmark_spark_3_4_0.report report/examples/aqe_001/aqe_001.html
 ```
 
