@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pandas as pd
 import json
 import sys
@@ -149,3 +151,4 @@ html_content = html_template % (data1_json, data2_json, data3_json, name1, name2
 fh = open(outputFile, 'w')
 fh.write(html_content)
 fh.close()
+
