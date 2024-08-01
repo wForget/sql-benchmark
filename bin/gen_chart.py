@@ -131,6 +131,34 @@ html_template = '''
             }]
         };
         chartSpeedup.setOption(optionSpeedup);
+
+        /* Calculate average series data */
+        var avgSeriesData = function(values) {
+          avg = values.map(v => v.value).reduce((a, b) => a + b) / values.length;
+          return new Array(values.length).fill(avg);
+        };
+        var avgSeries = {
+          id: 'avgSeries',
+          type: 'bar',
+          data: avgSeriesData(data3),
+          barWidth: 0.1,
+          barGap: 0.1,
+          barCategoryGap: 0.1,
+          color: 'transparent',
+          markLine: {
+            show: true,
+            data: [{
+              name: 'average line',
+              type: 'average'
+            }],
+            lineStyle: {
+              color: 'red'
+            },
+          }
+        };
+        chartSpeedup.setOption({
+          series: avgSeries
+        });
     </script>
 </body>
 </html>
