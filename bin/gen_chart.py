@@ -69,6 +69,12 @@ html_template = '''
             title: {
                 text: "Duration Bar Chart"
             },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
             legend: {
                 data: [seriesName1, seriesName2]
             },
