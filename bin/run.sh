@@ -23,12 +23,23 @@ if [ ! -e ${REPORT_DIR} ] ; then
     mkdir ${REPORT_DIR}
 fi
 
+export RESULT_DIR=${RESULT_DIR:-${work_dir}/result}
+export RESULT_NAME=${RESULT_NAME:-"${REPORT_NAME}"}
+
+RESULT_DIR_PATH="${RESULT_DIR}/${RESULT_NAME}"
+if [ ! -e $RESULT_DIR_PATH ] ; then
+    mkdir -p $RESULT_DIR_PATH
+fi
+rm -f $RESULT_DIR_PATH/*
+
 sql_files=$(ls $SQL_DIR/*.sql)
 for file in $sql_files
 do
-    start=$(timestamp)
-    `$cmd -f $file $cmd_args`
-    end=$(timestamp)
     filename=${file##*/}
+    start=$(timestamp)
+    result_file="$RESULT_DIR_PATH/${filename}.result"
+    # grep -E "^[+|].*" is used to filter query result
+    `$cmd -f $file $cmd_args | grep -E "^[+|].*" 1> ${result_file}`
+    end=$(timestamp)
     gen_report $filename $start $end
 done
