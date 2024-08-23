@@ -63,10 +63,19 @@ beeline -u "jdbc:hive2://hostname:10000/default;?spark.yarn.queue=${QUEUE};spark
 # export REPORT_DIR=report
 # 指定报告名称（默认为 sql_benchmark_$(timestamp).report）
 # export REPORT_NAME=sql_benchmark_spark_3_2
+#
+# 指定结果存放 Base 目录（默认为 ${work_dir}/result）
+# RESULT_DIR=result
+# 指定结果集目录名称（默认为 $REPORT_NAME）
+# RESULT_NAME=sql_benchmark_spark_3_2
 
 bin/run_with_beeline.sh -u "jdbc:hive2://hostname:10000/default;?spark.yarn.queue=${QUEUE};"
 
 # 生成报告在 $work_dir/report 目录中
+# 生成结果集在 $work_dir/result/sql_benchmark_spark_3_2 目录中
+
+# 对比结果集
+diff -r result/dir1 result/dir2
 ```
 
 ### 生成柱状图
